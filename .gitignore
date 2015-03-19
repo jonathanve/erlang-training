@@ -1,0 +1,18 @@
+#### joe made this: https://goel.io/joe
+
+### Custom ####
+lib/
+
+#####=== Erlang ===#####
+
+.eunit
+deps
+*.o
+*.beam
+*.plt
+erl_crash.dump
+ebin
+rel/example_project
+.concrete/DEV_MODE
+.rebar
+
