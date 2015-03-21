@@ -8,29 +8,25 @@
 -export([ls/1, get_file/2, put_file/3, rm/2]).
 
 ls(Server) ->
-    Server ! {self(), list_dir},
-    receive
-        {Server, FileList} ->
-            FileList
-    end.
+    rpc(Server, list_dir).
 
 get_file(Server, File) ->
-    Server ! {self(), {get_file, File}},
-    receive
-        {Server, Content} ->
-            Content
-    end.
+    rpc(Server, {get_file, File}).
 
 put_file(Server, File, Content) ->
-    Server ! {self(), {put_file, File, Content}},
-    receive
-        {Server, Result} ->
-            Result
-    end.
+    rpc(Server, {put_file, File, Content}).
 
 rm(Server, File) ->
-    Server ! {self(), {delete, File}},
+    rpc(Server, {delete, File}).
+
+-spec rpc(Pid, Request) -> Response when
+	Pid      :: pid(),
+	Request  :: term(),
+	Response :: term().
+
+rpc(Pid, Request) -> 
+    Pid ! {self(), Request},
     receive
-        {Server, Result} ->
-            Result
+        {Pid, Response} ->
+            Response
     end.

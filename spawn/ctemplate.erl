@@ -6,10 +6,10 @@ start() ->
 
 rpc(Pid, Request) ->   
     Pid ! {self(), Request},
-     receive
-	 {Pid, Response} ->
-	     Response
-     end.
+    receive
+	{Pid, Response} ->
+	    Response
+    end.
 
 loop() ->    
     receive
