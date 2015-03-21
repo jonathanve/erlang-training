@@ -1,4 +1,5 @@
 % client-server model
+% primitives: spawn, send, receive
 
 -module(area_server).
 -export([start/0, area/2, loop/0]).
