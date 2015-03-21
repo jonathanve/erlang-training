@@ -4,6 +4,7 @@
 % it's important to define which messages and their content
 
 -module(afile_client).
+-author({joe,armstrong}).
 -export([ls/1, get_file/2, put_file/3, rm/2]).
 
 ls(Server) ->

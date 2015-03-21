@@ -27,6 +27,8 @@
 % q(). % quit and close    f(). % unbound variables
 % list comprehensions are expressive but they can be tough to understand at first
 % guards: (; % OR) (, % AND)
+% functions can be refered: fun local_fun/arity fun mod:remote_fun/arity
+% include files (hrl)(-include) and macros (?MACRO)(-define)
 % 
 
 -module(hw).
