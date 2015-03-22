@@ -1,9 +1,9 @@
 -module(processes).
--export([max/1]).
+-export([max/1, test/1]).
 
 %% max(N)
 %%   Create N processes then destroy them
-%%   See how much time this takes
+%%   See how much time takes to create them
 max(N) ->    
     Max = erlang:system_info(process_limit),
     io:format("Maximum allowed processes:~p~n",[Max]),
@@ -12,12 +12,18 @@ max(N) ->
     L = for(1, N, fun() -> spawn(fun() -> wait() end) end),
     {_, Time1} = statistics(runtime),
     {_, Time2} = statistics(wall_clock),
-     lists:foreach(fun(Pid) ->
-			   Pid ! die end, L),
+    lists:foreach(fun(Pid) -> Pid ! die end, L),
     U1 = Time1 * 1000 / N,
     U2 = Time2 * 1000 / N,
-    io:format("Process spawn time=~p (~p) microseconds~n",
-	      [U1, U2]).
+    io:format("Process spawn time=~p (~p) microseconds~n",[U1, U2]),
+    {processes, N, cpu_time, U1, wallclock_time, U2}.
+
+-spec test(List) -> Result when
+    List   :: [pos_integer()],
+    Result :: [{processes, pos_integer(), cpu_time, float(), wallclock_time, float()}].
+
+test(L) ->
+    [max(X) || X <- L].
 
 wait() ->
     receive
