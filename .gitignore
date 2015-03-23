@@ -2,6 +2,7 @@
 
 ### Custom ####
 lib/
+mnesia/
 
 #####=== Erlang ===#####
 
