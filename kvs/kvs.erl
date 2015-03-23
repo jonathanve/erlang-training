@@ -1,3 +1,14 @@
+% concurrency, fault tolerance, distributed
+% same primitives but node must be specified
+% i.e: spawn(Node, Fun)
+% epmd is used to connect erl nodes
+% erl -name <name> -setcookie <cookie>
+% {RegName, Node} ! Msg (send message Msg to process RegName in Node)
+% new processes can be started in remote nodes
+% the set of connected nodes having the same cookie defines an Erlang cluster
+% lib_chan is a module that allows a user to control which processes are spawned on their machines.
+% socket based distribution is used when we want to improve security at expense of flexibility
+
 -module(kvs).
 -export([start/0, lookup/1, store/2]).
 
@@ -27,3 +38,4 @@ loop() ->
 		From ! {kvs, get(Key)},
 		loop()
     end.
+
