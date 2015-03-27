@@ -1,0 +1,15 @@
+OTP
+---
+
+OTP apps usually consist of a gen_server supervised by a gen_supervisor
+together with some error logging code.
+
+Looks really nice and clean.
+
+Behaviours:
+
+application      contains app file which describes the otp app
+gen_server       basic fault tolerant server
+gen_supervisor   used to (re)start a gen server when errors
+gen_event        generate alarms and handle events
+gen_fsm          finite state machines (useful for parsers)

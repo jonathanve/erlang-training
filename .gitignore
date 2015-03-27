@@ -3,6 +3,9 @@
 ### Custom ####
 lib/
 mnesia/
+otp/*.app
+otp/*.erl
+otp/*.config
 
 #####=== Erlang ===#####
 
