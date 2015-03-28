@@ -6,3 +6,4 @@ http://media.pragprog.com/titles/jaerlang2/code/sellaprime.app
 http://media.pragprog.com/titles/jaerlang2/code/sellaprime_app.erl
 http://media.pragprog.com/titles/jaerlang2/code/elog4.config
 http://media.pragprog.com/titles/jaerlang2/code/lib_primes.erl
+http://media-origin.pragprog.com/titles/jaerlang2/code/lib_lin.erl

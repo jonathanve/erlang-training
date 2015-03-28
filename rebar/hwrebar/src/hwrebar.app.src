@@ -1,0 +1,12 @@
+{application, hwrebar,
+ [
+  {description, "Basic OTP application"},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { hwrebar_app, []}},
+  {env, []}
+ ]}.
